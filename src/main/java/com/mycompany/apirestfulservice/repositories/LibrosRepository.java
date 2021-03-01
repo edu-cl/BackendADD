@@ -1,6 +1,7 @@
-package com.mycompany.repositories;
+package com.mycompany.apirestfulservice.repositories;
 
-import com.mycompany.modelo.Libros;
+
+import com.mycompany.apirestfulservice.modelo.Libros;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,8 +1,9 @@
-package com.mycompany.services;
+package com.mycompany.apirestfulservice.services;
 
-import com.mycompany.exceptions.RecordNotFoundException;
-import com.mycompany.modelo.Autor;
-import com.mycompany.repositories.AutorRepository;
+
+import com.mycompany.apirestfulservice.exceptions.RecordNotFoundException;
+import com.mycompany.apirestfulservice.modelo.Autor;
+import com.mycompany.apirestfulservice.repositories.AutorRepository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;

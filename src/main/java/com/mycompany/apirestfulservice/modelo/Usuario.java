@@ -1,8 +1,9 @@
-package com.mycompany.modelo;
+package com.mycompany.apirestfulservice.modelo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,13 +20,15 @@ import javax.persistence.Table;
 public class Usuario {
 
     @Id
+    @Column(name="id" ,unique = true,nullable = false)
+    @Basic(optional = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "Nombre")
     private String nombre;
 
-    @JsonIgnoreProperties(value = {"groups"}, allowSetters = true)
+    @JsonIgnoreProperties(value = {"usuarios"}, allowSetters = true)
     @JoinTable(name = "Leen", joinColumns = @JoinColumn(name = "USUARIO_ID"), inverseJoinColumns = @JoinColumn(name = "LIBRO_ID"))
     @ManyToMany(cascade = {CascadeType.MERGE})
     private List<Libros> libros = new ArrayList<>();

@@ -1,7 +1,10 @@
-package com.mycompany.modelo;
+package com.mycompany.apirestfulservice.modelo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,23 +15,26 @@ import javax.persistence.ManyToOne;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 
-
 @Entity
-@Table(name="Libros")
+@Table(name = "Libros")
 public class Libros {
 
     @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", unique = true, nullable = false)
+    @Basic(optional = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
-    @Column(name="Titulo")
+
+    @Column(name = "Titulo")
     private String titulo;
-    
-    @ManyToOne
+
+     @JsonIgnoreProperties(value = {"libros"}, allowSetters = true)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "AUTOR_ID")
     private Autor autor;
-    
-    @ManyToMany(mappedBy = "Libros")
+
+    @JsonIgnoreProperties(value = {"libros"}, allowSetters = true)
+    @ManyToMany(mappedBy = "libros" , cascade = CascadeType.MERGE)
     private List<Usuario> usuarios = new ArrayList<>();
 
     public Libros() {

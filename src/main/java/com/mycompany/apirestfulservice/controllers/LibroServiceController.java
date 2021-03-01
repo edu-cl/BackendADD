@@ -1,8 +1,9 @@
-package com.mycompany.controllers;
+package com.mycompany.apirestfulservice.controllers;
 
-import com.mycompany.exceptions.RecordNotFoundException;
-import com.mycompany.modelo.Libros;
-import com.mycompany.services.LibrosService;
+
+import com.mycompany.apirestfulservice.exceptions.RecordNotFoundException;
+import com.mycompany.apirestfulservice.modelo.Libros;
+import com.mycompany.apirestfulservice.services.LibrosService;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,9 +1,9 @@
-package com.mycompany.controllers;
+package com.mycompany.apirestfulservice.controllers;
 
-import com.mycompany.exceptions.RecordNotFoundException;
-import com.mycompany.modelo.Libros;
-import com.mycompany.modelo.Usuario;
-import com.mycompany.services.UsuarioService;
+
+import com.mycompany.apirestfulservice.exceptions.RecordNotFoundException;
+import com.mycompany.apirestfulservice.modelo.Usuario;
+import com.mycompany.apirestfulservice.services.UsuarioService;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

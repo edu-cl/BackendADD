@@ -1,8 +1,10 @@
-package com.mycompany.modelo;
+package com.mycompany.apirestfulservice.modelo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,20 +14,24 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Autores")
-public class Autor implements Serializable{
-    
+@Table(name = "Autores")
+public class Autor implements Serializable {
+
     @Id
+    @Column(name = "id", unique = true, nullable = false)
+    @Basic(optional = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
-    @Column(name="Nombre")
+
+    @Column(name = "Nombre")
     private String nombre;
     
-    @OneToMany(mappedBy = "Autores ")
-    private List<Libros> libros=new ArrayList<>();
-    
-    public Autor(){}
+    @JsonIgnoreProperties(value = {"autor"}, allowSetters = true)
+    @OneToMany(mappedBy = "autor")
+    private List<Libros> libros = new ArrayList<>();
+
+    public Autor() {
+    }
 
     public Autor(Long id, String nombre) {
         this.id = id;
@@ -61,8 +67,4 @@ public class Autor implements Serializable{
         return "Autor{" + "id=" + id + ", nombre=" + nombre + ", libros=" + libros + '}';
     }
 
-    
-    
-    
-    
 }

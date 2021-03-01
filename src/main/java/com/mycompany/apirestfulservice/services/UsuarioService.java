@@ -1,9 +1,9 @@
-package com.mycompany.services;
+package com.mycompany.apirestfulservice.services;
 
-import com.mycompany.exceptions.RecordNotFoundException;
-import com.mycompany.modelo.Libros;
-import com.mycompany.modelo.Usuario;
-import com.mycompany.repositories.UserRepository;
+
+import com.mycompany.apirestfulservice.exceptions.RecordNotFoundException;
+import com.mycompany.apirestfulservice.modelo.Usuario;
+import com.mycompany.apirestfulservice.repositories.UserRepository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
